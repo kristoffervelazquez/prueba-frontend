@@ -13,8 +13,8 @@ const ItemList = ({ service, setEdicion }) => {
 
     const handleEliminarClick = () => {
         Swal.fire({
-            title: 'Are you sure?',
-            text: "No se puede revertir !",
+            title: 'Estas seguro?',
+            text: "No se puede revertir!",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
@@ -28,6 +28,7 @@ const ItemList = ({ service, setEdicion }) => {
                     'Tu archivo ha sido eliminado.',
                     'success'
                 )
+                setEdicion();
             }
         })
 
