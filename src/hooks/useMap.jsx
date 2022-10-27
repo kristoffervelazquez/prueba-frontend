@@ -42,7 +42,7 @@ const useMap = () => {
             document.getElementById("map"),
             {
                 center: { lat: 31.899783920174098, lng: -113.236875 },
-                zoom: 5,
+                zoom: 3,
             }
         );
 
@@ -101,11 +101,19 @@ const useMap = () => {
             fillColor: "#FF0000",
             fillOpacity: 0.35,
         });
-        mapCoords.setMap(map);
-
         // El poligono anterior se desecha y el _MyPolign es igual al poligono actual para poder limpiarlo 
         // en el siguiente dibujado
         _Mypolygon = mapCoords;
+
+        // Se verifica que este un poligono con coordendas de google guardado en memoria y se toma de referencia el 
+        // primer punto del poligono como centro del mapa
+        if (_Mypolygon.latLngs.bd.length > 0) {
+            map.setCenter(coordenadas[0])
+            map.setZoom(10);
+        }
+
+        mapCoords.setMap(map);
+
     }
 
     const limpiarMapa = () => {

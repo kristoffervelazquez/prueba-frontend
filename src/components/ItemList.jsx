@@ -1,4 +1,5 @@
 import React from 'react'
+import Swal from 'sweetalert2';
 import useServicios from '../hooks/useServicios';
 
 const ItemList = ({ service, setEdicion }) => {
@@ -10,12 +11,27 @@ const ItemList = ({ service, setEdicion }) => {
         setEdicion(service);
     }
 
-    const handleEliminarClick = async () => {
-        const confirmacion = confirm('Quieres eliminar este servicio?')
+    const handleEliminarClick = () => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "No se puede revertir !",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, eliminarlo!'
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                await eliminarServicio(id);
+                Swal.fire(
+                    'Eliminado!',
+                    'Tu archivo ha sido eliminado.',
+                    'success'
+                )
+            }
+        })
 
-        if (confirmacion) {
-            await eliminarServicio(id);
-        }
+
     }
 
     return (
