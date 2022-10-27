@@ -7,13 +7,13 @@ const MiniNavbar = () => {
                 <nav aria-label="breadcrumb">
                     <ol className="breadcrumb ">
                         <li className="breadcrumb-item">
-                            <a className='text-secondary' href="/">Kab admin</a>
+                            <a className='text-secondary fw-bold' href="/">Kab admin</a>
                         </li>
                         <li className="breadcrumb-item">
-                            <a className='text-secondary' href="/">Servicios</a>
+                            <a className='text-secondary fw-bold' href="/">Servicios</a>
                         </li>
                         <li className="breadcrumb-item active" aria-current="page">
-                            <a className='text-secondary' href="/">Crear - Editar Servicio</a>
+                            <a className='text-secondary fw-bold' href="/">Crear - Editar Servicio</a>
                         </li>
                     </ol>
                 </nav>
